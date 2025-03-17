@@ -5,7 +5,7 @@
 1. Make sure you have Godot Git Plugin installed.
 2. Make sure you have Git installed.
 3. Open a terminal or a command prompt and input the following: `ssh-keygen -t rsa -m pem -C "your-email-goes-here"` where the quoted part is the email address associated with your GitHub account.
-4. In the same terminal `cat` the file with the .pub filetype and copy the output.
+4. In the same terminal `cat` the file with the .pub filetype and copy the output like this: `cat ~/.ssh/id_rsa.pub`.
 5. In GitHub inside your account settings, go to the SSH and GPG key pages and create a new SSH key with the copied output.
 6. Inside Godot go to "Project > Version control > Version control settings" and add in the username of your GitHub account, the path to both of the SSH keys generated.
 7. Toggle "Connect to VCS" on.

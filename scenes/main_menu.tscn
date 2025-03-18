@@ -64,5 +64,10 @@ theme_override_font_sizes/font_size = 50
 text = "Settings"
 metadata/_edit_use_anchors_ = true
 
+[node name="TESTI-TESTI-TESTI" type="Container" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/GamesButton" to="." method="_on_games_button_pressed"]
 [connection signal="pressed" from="MarginContainer/HBoxContainer/VBoxContainer/SettingsButton" to="." method="_on_settings_button_pressed"]

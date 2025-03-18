@@ -11,8 +11,24 @@ config_version=5
 [application]
 
 config/name="Minipelit"
+run/main_scene="uid://cagk5u7j5bb4w"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=1080
+window/size/viewport_height=1920
+window/handheld/orientation=1
+
+[dotnet]
+
+project/assembly_name="Minipelit"
+
+[editor]
+
+version_control/plugin_name="GitPlugin"
+version_control/autoload_on_startup=true
 
 [rendering]
 

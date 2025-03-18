@@ -11,7 +11,9 @@ config_version=5
 [application]
 
 config/name="Minipelit"
-run/main_scene="uid://cagk5u7j5bb4w"
+
+run/main_scene="uid://cy1vxaptakey3"
+
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 

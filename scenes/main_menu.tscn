@@ -9,6 +9,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+scale = Vector2(20, 20)
+size_flags_horizontal = 4
 script = ExtResource("1_l6cm7")
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -21,8 +23,7 @@ grow_vertical = 2
 color = Color(0.533375, 0.684613, 0.587667, 1)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 1
-anchors_preset = 15
+layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2

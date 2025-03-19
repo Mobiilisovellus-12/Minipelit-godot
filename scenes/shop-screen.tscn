@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://c1rdbrqy73g1r"]
 
-[ext_resource type="Script" uid="uid://bd4t3l730j1ys" path="res://shop_screen.gd" id="1_t204j"]
-[ext_resource type="Texture2D" uid="uid://dd32n7x7ms8yn" path="res://godot-kissa4.png" id="2_ybv17"]
+[ext_resource type="Script" uid="uid://bd4t3l730j1ys" path="res://scenes/shop_screen.gd" id="1_gi7ug"]
+[ext_resource type="Texture2D" uid="uid://dd32n7x7ms8yn" path="res://godot-kissa4.png" id="2_7prlw"]
 
 [node name="ShopScreen" type="Control"]
 layout_mode = 3
@@ -10,7 +10,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_t204j")
+script = ExtResource("1_gi7ug")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 custom_minimum_size = Vector2(1080, 1920)
@@ -84,7 +84,7 @@ theme_override_constants/separation = 50
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("2_ybv17")
+texture = ExtResource("2_7prlw")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect"]
@@ -127,7 +127,7 @@ text = "5 euros"
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("2_ybv17")
+texture = ExtResource("2_7prlw")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect2"]
@@ -170,7 +170,7 @@ text = "10 euros"
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("2_ybv17")
+texture = ExtResource("2_7prlw")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect3"]
@@ -213,7 +213,7 @@ text = "15 euros"
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("2_ybv17")
+texture = ExtResource("2_7prlw")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect4"]
@@ -256,7 +256,7 @@ text = "BOTTOM TEXT"
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("2_ybv17")
+texture = ExtResource("2_7prlw")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect5"]
@@ -299,7 +299,7 @@ text = "BOTTOM TEXT"
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("2_ybv17")
+texture = ExtResource("2_7prlw")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect6"]
@@ -342,7 +342,7 @@ text = "BOTTOM TEXT"
 custom_minimum_size = Vector2(200, 200)
 layout_mode = 2
 size_flags_horizontal = 0
-texture = ExtResource("2_ybv17")
+texture = ExtResource("2_7prlw")
 expand_mode = 1
 
 [node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect7"]

@@ -6,7 +6,7 @@ func _ready():
 
 func _on_games_button_pressed():
 	# Loading a scene
-	get_tree().change_scene_to_packed(load("res://scenes/test.tscn"))
+	get_tree().change_scene_to_packed(load("res://scenes/game_select.tscn"))
 
 
 func _on_settings_button_pressed():

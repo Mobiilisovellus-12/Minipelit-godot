@@ -1,0 +1,420 @@
+[gd_scene load_steps=3 format=3 uid="uid://c1rdbrqy73g1r"]
+
+[ext_resource type="Script" uid="uid://bd4t3l730j1ys" path="res://scenes/shop_screen.gd" id="1_gi7ug"]
+[ext_resource type="Texture2D" uid="uid://dd32n7x7ms8yn" path="res://godot-kissa4.png" id="2_7prlw"]
+
+[node name="ShopScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gi7ug")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+custom_minimum_size = Vector2(1080, 1920)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer"]
+layout_mode = 2
+color = Color(0.533333, 0.686275, 0.588235, 1)
+
+[node name="Button" type="Button" parent="MarginContainer/ColorRect"]
+custom_minimum_size = Vector2(400, 125)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -200.0
+offset_top = -170.0
+offset_right = 200.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/ColorRect"]
+modulate = Color(0.0028296, 0.00240076, 0.000632167, 1)
+self_modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(600, 20)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -245.0
+offset_right = 250.0
+offset_bottom = -225.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Container" type="Container" parent="MarginContainer/ColorRect"]
+custom_minimum_size = Vector2(900, 1100)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -420.0
+offset_top = -860.0
+offset_right = 480.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/ColorRect/Container"]
+custom_minimum_size = Vector2(900, 1100)
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/ColorRect/Container/ScrollContainer"]
+custom_minimum_size = Vector2(900, 1100)
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_7prlw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -80.0
+offset_right = 525.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Piglet of coins XXX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect"]
+custom_minimum_size = Vector2(450, 75)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -90.0
+offset_right = 500.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "5 euros"
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_7prlw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect2"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -80.0
+offset_right = 525.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Pig of coins XXX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect2"]
+custom_minimum_size = Vector2(450, 75)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -90.0
+offset_right = 500.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "10 euros"
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_7prlw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect3"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -80.0
+offset_right = 525.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "Hog of coins XXX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect3"]
+custom_minimum_size = Vector2(450, 75)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -90.0
+offset_right = 500.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "15 euros"
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_7prlw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect4"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -80.0
+offset_right = 525.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "TOP TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect4"]
+custom_minimum_size = Vector2(450, 75)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -90.0
+offset_right = 500.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "BOTTOM TEXT"
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_7prlw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect5"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -80.0
+offset_right = 525.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "TOP TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect5"]
+custom_minimum_size = Vector2(450, 75)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -90.0
+offset_right = 500.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "BOTTOM TEXT"
+
+[node name="TextureRect6" type="TextureRect" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_7prlw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect6"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -80.0
+offset_right = 525.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "TOP TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect6"]
+custom_minimum_size = Vector2(450, 75)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -90.0
+offset_right = 500.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "BOTTOM TEXT"
+
+[node name="TextureRect7" type="TextureRect" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 0
+texture = ExtResource("2_7prlw")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect7"]
+custom_minimum_size = Vector2(500, 100)
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 25.0
+offset_top = -80.0
+offset_right = 525.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "TOP TEXT"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="MarginContainer/ColorRect/Container/ScrollContainer/VBoxContainer/TextureRect7"]
+custom_minimum_size = Vector2(450, 75)
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.0
+offset_top = -90.0
+offset_right = 500.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "BOTTOM TEXT"
+
+[node name="Label" type="Label" parent="MarginContainer/ColorRect"]
+custom_minimum_size = Vector2(400, 300)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -474.5
+offset_top = -720.0
+offset_right = 474.5
+offset_bottom = -420.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "Unlock Premium!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button2" type="Button" parent="MarginContainer/ColorRect"]
+custom_minimum_size = Vector2(500, 150)
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -250.0
+offset_top = -495.0
+offset_right = 250.0
+offset_bottom = -345.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 50
+text = "10 euros"
+
+[connection signal="pressed" from="MarginContainer/ColorRect/Button" to="." method="_on_button_pressed"]

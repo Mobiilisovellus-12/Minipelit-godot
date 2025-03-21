@@ -8,4 +8,4 @@ func _on_begin_button_pressed():
 
 
 func _on_back_button_pressed():
-	get_tree().change_scene_to_packed(load("game selection scene path here"))
+	get_tree().change_scene_to_packed(load("res://scenes/game_select.tscn"))

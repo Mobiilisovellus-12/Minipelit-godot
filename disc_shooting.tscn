@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://cimq60kdqoicq"]
+
+[ext_resource type="Script" uid="uid://dtamn2qua3od0" path="res://disc_shooting.gd" id="1_17h1x"]
+[ext_resource type="PackedScene" uid="uid://c665m0jp2o6vs" path="res://disc_shooting_player.tscn" id="2_l33fi"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_oukar"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_17h1x"]
+albedo_color = Color(0.296513, 0.447281, 0.325951, 1)
+
+[node name="DiscShooting" type="Node3D"]
+script = ExtResource("1_17h1x")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(40, 0, 0, 0, 40, 0, 0, 0, 40, 0, 0, 0)
+mesh = SubResource("PlaneMesh_oukar")
+surface_material_override/0 = SubResource("StandardMaterial3D_17h1x")
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.0657341, 0.997837, 0, -0.997837, 0.0657341, 0, 9.51644, 0.482658)
+light_color = Color(0.777298, 0.752008, 0.683861, 1)
+light_energy = 3.0
+
+[node name="DiscShootingPlayer" parent="." instance=ExtResource("2_l33fi")]
+motion_mode = 1

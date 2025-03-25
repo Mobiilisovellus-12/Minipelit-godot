@@ -4,4 +4,4 @@
 
 *.apk
 *.idsig
-*.env
+*.env.txt

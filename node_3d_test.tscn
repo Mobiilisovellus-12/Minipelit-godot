@@ -1,0 +1,19 @@
+[gd_scene load_steps=2 format=3 uid="uid://b8lvvy8nfk78d"]
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_mvx1c"]
+
+[node name="Node3D" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("PlaneMesh_mvx1c")
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer"]
+layout_mode = 2

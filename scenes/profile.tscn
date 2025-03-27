@@ -1,0 +1,198 @@
+[gd_scene load_steps=3 format=3 uid="uid://dn3ba5qv3e74x"]
+
+[ext_resource type="Script" uid="uid://cgglhfn2q4afa" path="res://profile.gd" id="1_bfm3i"]
+[ext_resource type="Texture2D" uid="uid://dd32n7x7ms8yn" path="res://godot-kissa4.png" id="2_6udjm"]
+
+[node name="Profile" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -2.0
+offset_right = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_bfm3i")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.533333, 0.686275, 0.588235, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="ProfileInfo" type="VBoxContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+
+[node name="PfpCoins" type="HBoxContainer" parent="ColorRect/MarginContainer/ProfileInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="ColorRect/MarginContainer/ProfileInfo/PfpCoins"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="ProfilePic" type="TextureRect" parent="ColorRect/MarginContainer/ProfileInfo/PfpCoins"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource("2_6udjm")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Currency" type="VBoxContainer" parent="ColorRect/MarginContainer/ProfileInfo/PfpCoins"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 0
+
+[node name="Coins" type="Label" parent="ColorRect/MarginContainer/ProfileInfo/PfpCoins/Currency"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Coins : "
+
+[node name="Amount" type="Label" parent="ColorRect/MarginContainer/ProfileInfo/PfpCoins/Currency/Coins"]
+layout_mode = 0
+offset_left = 128.0
+offset_right = 254.0
+offset_bottom = 74.0
+theme_override_font_sizes/font_size = 35
+text = "zilch"
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/ProfileInfo"]
+layout_mode = 2
+
+[node name="Scores&Stats" type="MarginContainer" parent="ColorRect/MarginContainer/ProfileInfo"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 150
+
+[node name="InfoContainer" type="VBoxContainer" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats"]
+layout_mode = 2
+
+[node name="UserInfo" type="VBoxContainer" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+
+[node name="Username" type="Label" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer/UserInfo"]
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 35
+text = "Username"
+
+[node name="Email" type="Label" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer/UserInfo"]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_font_sizes/font_size = 35
+text = "Email"
+
+[node name="HSeparator" type="HSeparator" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer"]
+layout_mode = 2
+
+[node name="HSLabel" type="Label" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "High Scores"
+horizontal_alignment = 1
+
+[node name="HighScores" type="ScrollContainer" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HSList" type="VBoxContainer" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer/HighScores"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 2
+
+[node name="Game1" type="Label" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer/HighScores/HSList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Game1                      "
+
+[node name="Game2" type="Label" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer/HighScores/HSList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Game2"
+
+[node name="HSeparator3" type="HSeparator" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer"]
+layout_mode = 2
+
+[node name="StatLabel" type="Label" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Statistics"
+horizontal_alignment = 1
+
+[node name="Stats" type="ScrollContainer" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="StatList" type="VBoxContainer" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer/Stats"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+
+[node name="Time" type="Label" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer/Stats/StatList"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 30
+text = "Time spent on app:"
+
+[node name="Coins" type="Label" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer/Stats/StatList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Total coins earned:"
+
+[node name="placeholder" type="Label" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer/Stats/StatList"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 30
+text = "Etc."
+
+[node name="HSeparator2" type="HSeparator" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer"]
+layout_mode = 2
+
+[node name="Buttons" type="MarginContainer" parent="ColorRect/MarginContainer"]
+layout_mode = 2
+size_flags_vertical = 8
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ColorRect/MarginContainer/Buttons"]
+layout_mode = 2
+size_flags_vertical = 8
+
+[node name="BackButton" type="Button" parent="ColorRect/MarginContainer/Buttons/HBoxContainer"]
+custom_minimum_size = Vector2(400, 125)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 10
+theme_override_font_sizes/font_size = 50
+text = "Back"
+
+[node name="LogOutButton" type="Button" parent="ColorRect/MarginContainer/Buttons/HBoxContainer"]
+custom_minimum_size = Vector2(400, 125)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 50
+text = "Log Out"
+
+[connection signal="pressed" from="ColorRect/MarginContainer/Buttons/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]

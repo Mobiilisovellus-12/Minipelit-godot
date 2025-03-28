@@ -11,7 +11,7 @@ func _on_games_button_pressed():
 
 func _on_settings_button_pressed():
 	# Loading a scene
-	get_tree().change_scene_to_packed(load("res://scenes/test2.tscn"))
+	get_tree().change_scene_to_packed(load("res://scenes/settings.tscn"))
 
 
 func _on_profile_button_pressed() -> void:

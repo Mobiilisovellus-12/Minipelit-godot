@@ -26,6 +26,12 @@ light_energy = 3.0
 motion_mode = 1
 
 [node name="DiscShooter" parent="." instance=ExtResource("3_6u3rx")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25.9419, 0.624777, -13.0775)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 25, 0.625, -13.078)
 shoot_force = 40.0
 shoot_angle = 15.0
+
+[node name="DiscShooter2" parent="." instance=ExtResource("3_6u3rx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.625, -13.078)
+shoot_force = 40.0
+shoot_angle = 15.0
+shoot_direction = Vector3(1, 0, 0)

@@ -198,5 +198,15 @@ size_flags_horizontal = 6
 theme_override_font_sizes/font_size = 50
 text = "Log Out"
 
+[node name="LogInButton" type="Button" parent="ColorRect/MarginContainer/Buttons/HBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(400, 125)
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_font_sizes/font_size = 50
+text = "Log In
+"
+
 [connection signal="pressed" from="ColorRect/MarginContainer/Buttons/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
 [connection signal="pressed" from="ColorRect/MarginContainer/Buttons/HBoxContainer/LogOutButton" to="." method="_on_log_out_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/Buttons/HBoxContainer/LogInButton" to="." method="_on_log_in_button_pressed"]

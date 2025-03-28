@@ -8,6 +8,7 @@ func _ready():
 		# Tähän lisättävä Username-ominaisuus
 		%Email.text = "Logged in"
 		%LogOutButton.visible = true
+		%LogInButton.visible = false
 	else:
 		default()
 		
@@ -25,3 +26,8 @@ func default() -> void:
 	%Username.text = "Guest"
 	%Email.text = ""
 	%LogOutButton.visible = false
+	%LogInButton.visible = true
+
+
+func _on_log_in_button_pressed() -> void:
+	get_tree().change_scene_to_packed(load("res://scenes/firebase.tscn"))

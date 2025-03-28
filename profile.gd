@@ -5,6 +5,7 @@ func _ready():
 	
 	
 	if Firebase.Auth.check_auth_file():
+		# Tähän lisättävä Username-ominaisuus
 		%Email.text = "Logged in"
 		%LogOutButton.visible = true
 			
@@ -18,3 +19,4 @@ func _on_log_out_button_pressed() -> void:
 	%Username.text = "Guest"
 	%Email.text = ""
 	%LogOutButton.visible = false
+	print("logout painettu")

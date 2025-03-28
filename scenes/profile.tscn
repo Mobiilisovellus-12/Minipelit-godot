@@ -92,12 +92,14 @@ size_flags_horizontal = 6
 size_flags_vertical = 2
 
 [node name="Username" type="Label" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer/UserInfo"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 1
 theme_override_font_sizes/font_size = 35
 text = "Username"
 
 [node name="Email" type="Label" parent="ColorRect/MarginContainer/ProfileInfo/Scores&Stats/InfoContainer/UserInfo"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 0
 theme_override_font_sizes/font_size = 35
@@ -189,6 +191,7 @@ theme_override_font_sizes/font_size = 50
 text = "Back"
 
 [node name="LogOutButton" type="Button" parent="ColorRect/MarginContainer/Buttons/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(400, 125)
 layout_mode = 2
 size_flags_horizontal = 6
@@ -196,3 +199,4 @@ theme_override_font_sizes/font_size = 50
 text = "Log Out"
 
 [connection signal="pressed" from="ColorRect/MarginContainer/Buttons/HBoxContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/Buttons/HBoxContainer/LogOutButton" to="." method="_on_log_out_button_pressed"]

@@ -39,7 +39,7 @@ func _on_motion_control_toggled(enabled: bool):
 
 func _recalibrate_motion():
 	if use_gyro:
-		gyro_reference = current_rotation.inverse()
+		gyro_reference = current_rotation
 		print("Recalibrated Gyroscope:", gyro_reference)
 	else:
 		accel_reference = Basis.from_euler((Input.get_accelerometer()))
@@ -65,7 +65,7 @@ func _process(delta):
 			
 			var adjusted_gyro = Vector3(
 				raw_gyro.x,
-				-raw_gyro.y,
+				raw_gyro.y,
 				raw_gyro.z
 			)
 			

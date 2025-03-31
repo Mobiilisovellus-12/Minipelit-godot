@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7q23qf37528x"]
+
+[ext_resource type="Script" uid="uid://vut3f3or2y8y" path="res://scenes/disc_shooter_scene.gd" id="1_00m07"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_65rbm"]
+
+[node name="DiscShooter" type="Node3D"]
+script = ExtResource("1_00m07")
+
+[node name="BoxMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_65rbm")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true

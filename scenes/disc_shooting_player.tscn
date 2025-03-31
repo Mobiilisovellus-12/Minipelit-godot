@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c665m0jp2o6vs"]
+
+[ext_resource type="Script" uid="uid://3v7jtfrf2xqd" path="res://scenes/disc_shooting_player.gd" id="1_odfn2"]
+[ext_resource type="PackedScene" uid="uid://ctvovfohsgits" path="res://scenes/activate_motion_controls.tscn" id="2_q4jgv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q4jgv"]
+
+[node name="DiscShootingPlayer" type="CharacterBody3D"]
+script = ExtResource("1_odfn2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_q4jgv")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
+
+[node name="ActivateGyro" parent="." instance=ExtResource("2_q4jgv")]

@@ -1,0 +1,23 @@
+{
+	"game1": [
+		{
+			"gameName": "Discshooter",
+			"gameImg": "res://godot-kissa4.png",
+			"scenePath": "res://scenes/before-game.tscn"
+		}
+	],
+	"game2": [
+		{
+			"gameName": "Gogogo",
+			"gameImg": "res://godot-kissa4.png",
+			"scenePath": "res://scenes/before-game.tscn"
+		}
+	],
+	"game3": [
+		{
+			"gameName": "example",
+			"gameImg": "res://MenuBackground.png",
+			"scenePath": "res://scenes/before-game.tscn"
+		}
+	]
+}

@@ -42,16 +42,6 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="GameLabel1" type="Label" parent="ColorRect/ScrollContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-
-[node name="GameTexture1" type="TextureRect" parent="ColorRect/ScrollContainer/VBoxContainer"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 100)
-layout_mode = 2
-
 [node name="Button" type="Button" parent="ColorRect"]
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 1

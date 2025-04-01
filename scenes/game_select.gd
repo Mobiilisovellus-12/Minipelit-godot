@@ -3,30 +3,42 @@ extends Control
 var gameData = {}
 var jsonFilePath = "res://resources/game.json"
 
+const jsonUtils = preload("res://scripts/read_json.gd")
+
 func _ready():
 	get_viewport().size = DisplayServer.screen_get_size()
-	gameData = read_json(jsonFilePath)
-	assignValues()
-
-func assignValues():
-	%GameLabel1.text = gameData["game1"][0]["gameName"]
-	%GameTexture1.texture = load(gameData["game1"][0]["gameImg"])
+	gameData = jsonUtils.read_json(jsonFilePath)
+	generate_ui()
 
 
 func _on_button_pressed():
 	get_tree().change_scene_to_packed(load("res://scenes/main_menu.tscn"))
 
 
-func read_json(filePath : String):
-	if FileAccess.file_exists(filePath):
-		
-		var dataFile = FileAccess.open(filePath, FileAccess.READ)
-		var parsedRes = JSON.parse_string(dataFile.get_as_text())
-		
-		if parsedRes is Dictionary:
-			return parsedRes
-		else:
-			print("Can't read file")
+func _on_play_button_pressed(path):
+	get_tree().change_scene_to_packed(load(path))
+
+
+func generate_ui():
+	var scontainer = $ColorRect/ScrollContainer/VBoxContainer
 	
-	else:
-		print("Doesn't exist")
+	for item in gameData.keys():
+		for i in range (gameData[item].size()):
+			var game_entry = gameData[item][i]
+	
+			var game_label = Label.new()
+			game_label.text = game_entry.get("gameName")
+			
+			var game_texture = TextureRect.new()
+			game_texture.texture = load(game_entry.get("gameImg"))
+			game_texture.custom_minimum_size = Vector2(200, 200)
+			
+			var scene_path = game_entry.get("scenePath")
+			
+			var play_button = Button.new()
+			play_button.text = "PLAY"
+			#add path
+			
+			scontainer.add_child(game_label)
+			scontainer.add_child(game_texture)
+			scontainer.add_child(play_button)

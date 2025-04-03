@@ -41,8 +41,10 @@ custom_minimum_size = Vector2(600, 800)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme_override_constants/separation = 20
 
-[node name="Button" type="Button" parent="ColorRect"]
+[node name="BackButton" type="Button" parent="ColorRect"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(300, 100)
 layout_mode = 1
 anchors_preset = 7
@@ -78,4 +80,4 @@ grow_vertical = 0
 rotation = -0.000887483
 scale = Vector2(3, 3)
 
-[connection signal="pressed" from="ColorRect/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/BackButton" to="." method="_on_button_pressed"]

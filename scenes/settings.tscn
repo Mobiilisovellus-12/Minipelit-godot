@@ -103,4 +103,4 @@ size_flags_horizontal = 3
 [node name="CheckButton2" type="CheckButton" parent="ColorRect/MarginContainer/ScrollContainer/VBoxContainer/HBoxContainer3"]
 layout_mode = 2
 
-[connection signal="pressed" from="ColorRect/MarginContainer/BackButton" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="ColorRect/MarginContainer/BackButton" to="." method="_on_back_button_pressed"]

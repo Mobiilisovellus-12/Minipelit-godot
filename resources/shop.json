@@ -3,7 +3,7 @@
 		{
 			"itemName": "Piglet of coins",
 			"itemPrice": "5e",
-			"itemImg": "",
+			"itemImg": "res://godot-kissa4.png",
 			"payLink": ""
 		}
 	],
@@ -11,7 +11,7 @@
 		{
 			"itemName": "Pig of coins",
 			"itemPrice": "10e",
-			"itemImg": "",
+			"itemImg": "res://godot-kissa4.png",
 			"payLink": ""
 		}
 	]

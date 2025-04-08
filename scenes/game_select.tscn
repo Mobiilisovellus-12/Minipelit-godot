@@ -81,15 +81,4 @@ grow_vertical = 0
 rotation = -0.000887483
 scale = Vector2(3, 3)
 
-[node name="Button" type="Button" parent="ColorRect"]
-custom_minimum_size = Vector2(150, 75)
-layout_mode = 1
-offset_left = 70.0
-offset_top = 50.0
-offset_right = 220.0
-offset_bottom = 125.0
-theme_override_font_sizes/font_size = 30
-text = "SHOP"
-
 [connection signal="pressed" from="ColorRect/BackButton" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="ColorRect/Button" to="." method="_to_shop"]

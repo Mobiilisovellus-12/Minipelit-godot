@@ -1,8 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cimq60kdqoicq"]
+[gd_scene load_steps=8 format=3 uid="uid://cimq60kdqoicq"]
 
 [ext_resource type="Script" uid="uid://dtamn2qua3od0" path="res://scenes/disc_shooting.gd" id="1_17h1x"]
 [ext_resource type="PackedScene" uid="uid://c665m0jp2o6vs" path="res://scenes/disc_shooting_player.tscn" id="2_l33fi"]
 [ext_resource type="PackedScene" uid="uid://c7q23qf37528x" path="res://scenes/disc_shooter_scene.tscn" id="3_6u3rx"]
+[ext_resource type="PackedScene" uid="uid://bk4g2mc3xeixy" path="res://scenes/joystick_ui.tscn" id="4_nh1ae"]
+[ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="5_cy20n"]
 
 [sub_resource type="PlaneMesh" id="PlaneMesh_oukar"]
 
@@ -35,3 +37,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -25, 0.625, -13.078)
 shoot_force = 40.0
 shoot_angle = 15.0
 shoot_direction = Vector3(1, 0, 0)
+
+[node name="joystick_ui" parent="." instance=ExtResource("4_nh1ae")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Virtual Joystick" parent="CanvasLayer" instance=ExtResource("5_cy20n")]

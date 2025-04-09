@@ -16,20 +16,16 @@ func center_crosshair():
 	position = screen_center
 
 func _process(delta: float) -> void:
-	## Movement using the joystick output:
-#	if joystick_left and joystick_left.is_pressed:
-#		position += joystick_left.output * speed * delta
-	
 	## Movement using Input functions:
 	move_vector = Vector2.ZERO
 	move_vector = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
 	position += move_vector * speed * delta
 
-	var screen_size = get_viewport().size
-	var border_left = 0
-	var border_right = screen_size.x
-	var border_top = 0
-	var border_bottom = screen_size.y
+	#var screen_size = get_viewport().size
+	#var border_left = 0
+	#var border_right = screen_size.x
+	#var border_top = 0
+	#var border_bottom = screen_size.y
 	
-	position.x = clamp(position.x, border_left, border_right)
-	position.y = clamp(position.y, border_top, border_bottom)
+	#position.x = clamp(position.x, border_left, border_right)
+	#position.y = clamp(position.y, border_top, border_bottom)

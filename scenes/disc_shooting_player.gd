@@ -13,13 +13,21 @@ var mouse_sensitivity = 0.001
 
 @onready var camera = $Camera3D
 #@onready var collision_ball = $Camera3D/MeshInstance3D
+@onready var shoot_animation = $Camera3D/Node3D_gun/MeshInstance3D_gun/AnimationPlayer
+@onready var gun = $Camera3D/Node3D_gun/RayCast3D
 
+var bullet = load("res://scenes/node_3d_bullet.tscn")
+var bullet_instance
 var use_motion_controls: bool = false
 var use_gyro: bool = false
 var use_mouse: bool = false
 var gyro_reference = Basis.IDENTITY
 var current_rotation = Basis.IDENTITY
 var accel_reference = Basis.IDENTITY
+
+var shoot_input = "shoot" #shooting logic
+
+@onready var joystick_left : VirtualJoystick = get_node("/root/DiscShooting/CanvasLayer/Virtual Joystick")
 
 func _ready():
 	var motion_control_button = $ActivateGyro
@@ -29,7 +37,7 @@ func _ready():
 	recalibrate_button.pressed.connect(_recalibrate_motion)
 	
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED # Lock mouse for PC
-
+	
 func _on_motion_control_toggled(enabled: bool):
 	use_motion_controls = enabled
 	print("Motion controls:", "ENABlED" if use_motion_controls else "DISABLED")
@@ -51,10 +59,38 @@ func _input(event):
 	elif event is InputEventScreenTouch:
 		use_mouse = false
 	if event.is_action_pressed("ui_cancel"):
-		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+		else:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			
+	if Input.is_action_pressed("shoot"): #shooting logic
+		if !shoot_animation.is_playing():
+			shoot_animation.play("shoot")
+			bullet_instance = bullet.instantiate()
+			bullet_instance.position = gun.global_position
+			bullet_instance.transform.basis = gun.global_transform.basis
+			get_parent().add_child(bullet_instance)
+			
 
 func _process(delta):
-	if use_mouse:
+		# If joystick is being used, disable mouse controls.
+	if joystick_left != null and joystick_left.is_pressed:
+		# Access the joystick output vector
+		var joystick_input = joystick_left.output
+		var joystick_input_x = -joystick_input.x  # Horizontal (left-right)
+		var joystick_input_y = -joystick_input.y  # Vertical (up-down)
+		var rotation_speed_joystick : float = 80.0
+	
+		# Calculate yaw (rotation around Y-axis) and pitch (rotation around X-axis)
+		var yaw_delta = joystick_input_x * rotation_speed_joystick * delta  # Horizontal (yaw)
+		var pitch_delta = joystick_input_y * rotation_speed_joystick * delta  # Vertical (pitch)
+		
+		# Apply pitch rotation around the X-axis (vertical)
+		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x + pitch_delta, camera_min_x, camera_max_x)
+		# Apply yaw rotation around the Y-axis (horizontal)
+		camera.rotation_degrees.y = clamp(camera.rotation_degrees.y + yaw_delta, camera_min_y, camera_max_y)
+	elif use_mouse:
 		var mouse_delta = Input.get_last_mouse_screen_velocity()
 		rotation_degrees.y -= mouse_delta.x * mouse_sensitivity
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x - mouse_delta.y * mouse_sensitivity, camera_min_x, camera_max_x)
@@ -85,3 +121,8 @@ func _process(delta):
 			
 			rotation_degrees.y = clamp(rotation_degrees.y - accel_tilt.x, camera_min_y, camera_max_y)
 			camera.rotation_degrees.x = clamp(camera.rotation_degrees.x + accel_tilt.y, camera_min_x, camera_max_x)
+			
+	##Movement using Input functions:
+	#move_vector = Vector2.ZERO
+	#move_vector = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
+	#position += move_vector * speed * delta

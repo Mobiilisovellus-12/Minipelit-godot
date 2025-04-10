@@ -1,11 +1,12 @@
 extends Control
 
+signal start_the_game
+
 func _ready():
 	get_viewport().size = DisplayServer.screen_get_size()
 
 func _on_begin_button_pressed():
-	get_tree().change_scene_to_packed(load("game scene path here"))
-
+	emit_signal("start_the_game")
 
 func _on_back_button_pressed():
 	get_tree().change_scene_to_packed(load("res://scenes/game_select.tscn"))

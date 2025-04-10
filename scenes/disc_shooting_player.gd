@@ -7,9 +7,9 @@ var mouse_sensitivity = 0.001
 
 @export var rotation_speed: float = 0.8
 @export var camera_max_x: float = 30.0  # Max up/down angle
-@export var camera_min_x: float = -30.0 # Min up/down angle
-@export var camera_max_y: float = 45.0  # Max left/right angle
-@export var camera_min_y: float = -45.0 # Min left/right angle
+@export var camera_min_x: float = -10.0 # Min up/down angle
+@export var camera_max_y: float = 30.0  # Max left/right angle
+@export var camera_min_y: float = -30.0 # Min left/right angle
 
 @onready var camera = $Camera3D
 #@onready var collision_ball = $Camera3D/MeshInstance3D
@@ -35,9 +35,7 @@ func _ready():
 	
 	var recalibrate_button = $ActivateGyro/MarginContainer/VBoxContainer/HBoxContainer2/Button
 	recalibrate_button.pressed.connect(_recalibrate_motion)
-	
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED # Lock mouse for PC
-	
+
 func _on_motion_control_toggled(enabled: bool):
 	use_motion_controls = enabled
 	print("Motion controls:", "ENABlED" if use_motion_controls else "DISABLED")
@@ -47,7 +45,7 @@ func _on_motion_control_toggled(enabled: bool):
 
 func _recalibrate_motion():
 	if use_gyro:
-		gyro_reference = current_rotation
+		gyro_reference = current_rotation.orthonormalized()
 		print("Recalibrated Gyroscope:", gyro_reference)
 	else:
 		accel_reference = Basis.from_euler((Input.get_accelerometer()))
@@ -102,7 +100,7 @@ func _process(delta):
 			var adjusted_gyro = Vector3(
 				raw_gyro.x,
 				raw_gyro.y,
-				raw_gyro.z
+				0.0
 			)
 			
 			var delta_rotation = Basis.from_euler(adjusted_gyro * delta)

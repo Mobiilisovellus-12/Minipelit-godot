@@ -2,8 +2,7 @@ extends Node3D
 
 @export var disc_scene : PackedScene = preload("res://scenes/disc_scene.tscn")
 @export var shoot_force : float = 25.0
-@export var shoot_angle : float = 45.0
-@export var shoot_direction : Vector3 = Vector3.LEFT
+@export var shoot_angle : float = 100.0
 
 var shoot_timer : Timer
 
@@ -20,15 +19,14 @@ func shoot_disc():
 	print("Disc shot!")
 	var disc_instance = disc_scene.instantiate()
 	
-	var position_offset = shoot_direction.normalized() * 2
-	disc_instance.transform.origin = global_transform.origin + position_offset
+	var forward_direction = -global_transform.basis.z.normalized()  # Forward is -Z
+	var position_offset = forward_direction * 2
+	disc_instance.global_transform.origin = global_transform.origin + position_offset
 	
-	print("Disc position: ", disc_instance.transform.origin)
-	
-	get_tree().root.add_child(disc_instance)
+	get_parent().add_child(disc_instance)
 	
 	var angle_radians = deg_to_rad(shoot_angle)
-	var launch_velocity = shoot_direction.normalized() * shoot_force
-	launch_velocity.y = launch_velocity.y + shoot_force * sin(angle_radians)
+	var launch_velocity = forward_direction * shoot_force
+	launch_velocity.y += shoot_force * sin(angle_radians) * randf_range(0.5,1.0)
 	
 	disc_instance.apply_impulse(launch_velocity, disc_instance.transform.origin)

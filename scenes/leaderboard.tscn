@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://b87y2cy7isgum"]
+
+[ext_resource type="Script" uid="uid://cf8qbu72olgct" path="res://scenes/leaderboard.gd" id="1_mrg81"]
+
+[node name="Leaderboard" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_mrg81")
+
+[node name="Button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 349.0
+offset_top = 177.0
+offset_right = 630.0
+offset_bottom = 298.0
+
+[connection signal="pressed" from="Button" to="." method="on_press"]

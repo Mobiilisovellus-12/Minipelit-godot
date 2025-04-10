@@ -9,7 +9,7 @@ func _ready():
 	
 	if Firebase.Auth.check_auth_file():
 		%StateLabel.text = "Logged in"
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		get_tree().call_deferred("change_scene_to_packed", load("res://scenes/main_menu.tscn"))
 
 #register with email
 func _on_signup_withEmail_button_pressed():

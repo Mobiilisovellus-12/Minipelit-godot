@@ -3,10 +3,11 @@ extends Control
 var gameData = {}
 var jsonFilePath = "res://resources/game.json"
 
+const leaderboard_path = "res://scenes/leaderboard.tscn" #temp path until leaderboard scene exists
 const shop_path = "res://scenes/shop-screen.tscn"
-const shopUtils = preload("res://scripts/shop_redirect.gd")
 
-const jsonUtils = preload("res://scripts/read_json.gd")
+const scriptUtils = preload("res://scripts/smallScripts.gd")
+
 const button_theme = preload("res://themes/button_theme.tres")
 const back_button_theme = preload("res://themes/back_button_theme.tres")
 
@@ -15,8 +16,9 @@ const back_button_theme = preload("res://themes/back_button_theme.tres")
 func _ready():
 	get_viewport().size = DisplayServer.screen_get_size()
 	_add_ui_theme()
-	shopUtils.redirect_to_shop(self, shop_path)
-	gameData = jsonUtils.read_json(jsonFilePath)
+	scriptUtils.redirect_to_shop(self, shop_path)
+	scriptUtils.redirect_to_leaderboard(self, leaderboard_path)
+	gameData = scriptUtils.read_json(jsonFilePath)
 	generate_ui()
 
 func _add_ui_theme():

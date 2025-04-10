@@ -3,14 +3,14 @@ extends Control
 var shopData = {}
 var jsonFilePath = "res://resources/shop.json"
 
-const jsonUtils = preload("res://scripts/read_json.gd")
+const scriptUtils = preload("res://scripts/smallScripts.gd")
 const button_theme = preload("res://themes/button_theme.tres")
 const back_button_theme = preload("res://themes/back_button_theme.tres")
 
 func _ready():
 	# Setting the scene size to screen size
 	get_viewport().size = DisplayServer.screen_get_size()
-	shopData = jsonUtils.read_json(jsonFilePath)
+	shopData = scriptUtils.read_json(jsonFilePath)
 	generate_ui()
 	
 func _on_button_pressed():

@@ -1,21 +1,31 @@
 extends Node
 
-static func get_leaderboard_from_firebase() -> void:
-	var auth = Firebase.Auth.auth
+static func first_score(userName, highScore) -> void:
+	var firestore = Firebase.Firestore.collection("Leaderboard")
 	
-	if auth.has("localid"):
-		var local_id = auth["localid"]
-		
-		var collection: FirestoreCollection = Firebase.Firestore.collection("Leaderboard")
-		var task = await collection.get_doc(local_id)
-		
-		var document = task.document
-		
-		if document != null:
-			print("📄 Leaderboard Entry for", local_id)
-			print("Username:", document.get("username", "Unknown"))
-			print("Score:", document.get("score", 0))
-		else:
-			print("No leaderboard entry found for user:", local_id)
-	else:
-		print("User is not authenticated.")
+	var data := {
+		"name": userName,
+		"score": highScore
+	}
+	
+	var document = await firestore.add(userName, data)
+	print(document)
+
+
+
+static func update_score(userName, highScore):
+	var firestore = Firebase.Firestore.collection("Leaderboard")
+	
+	var data := {
+		#"name": userName,
+		"score": highScore
+	}
+	
+	var document = await firestore.update(data)
+	print(document)
+
+
+static func read_and_sort_leaderboard():
+	var query: FirestoreQuery = FirestoreQuery.new().from("Leaderboard").where("score", FirestoreQuery.OPERATOR.GREATER_THAN, 1).order_by("score", FirestoreQuery.DIRECTION.DESCENDING).limit(10)
+	
+	var results = await Firebase.Firestore.query(query)

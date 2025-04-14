@@ -12,10 +12,36 @@ grow_vertical = 2
 script = ExtResource("1_mrg81")
 
 [node name="Button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -140.5
+offset_top = -60.5
+offset_right = 140.5
+offset_bottom = 60.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "WRITE"
+
+[node name="Button2" type="Button" parent="."]
 layout_mode = 0
-offset_left = 349.0
-offset_top = 177.0
-offset_right = 630.0
-offset_bottom = 298.0
+offset_left = 382.0
+offset_top = 722.0
+offset_right = 642.0
+offset_bottom = 853.0
+text = "GET"
+
+[node name="Button3" type="Button" parent="."]
+layout_mode = 0
+offset_left = 342.0
+offset_top = 213.0
+offset_right = 587.0
+offset_bottom = 355.0
+text = "UPDATE"
 
 [connection signal="pressed" from="Button" to="." method="on_press"]
+[connection signal="pressed" from="Button2" to="." method="on_other_press"]
+[connection signal="pressed" from="Button3" to="." method="on_third_press"]

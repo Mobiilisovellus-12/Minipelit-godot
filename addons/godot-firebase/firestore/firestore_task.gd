@@ -113,7 +113,7 @@ func _on_request_completed(result: int, response_code: int, headers: PackedStrin
 
 		Firebase._printerr("Action in error was: " + str(action) + " " + description)
 		build_error(bod, action, description)
-	
+	print("bod: ", bod)
 	task_finished.emit()
 		
 func build_error(_error, action, description) -> void:

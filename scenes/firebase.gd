@@ -9,6 +9,7 @@ func _ready():
 	
 	if Firebase.Auth.check_auth_file():
 		%StateLabel.text = "Logged in"
+		print("Logged in from previous session(s)")
 		get_tree().call_deferred("change_scene_to_packed", load("res://scenes/main_menu.tscn"))
 
 #register with email

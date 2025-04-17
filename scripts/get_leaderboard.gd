@@ -20,7 +20,7 @@ static func add_or_update(userName, highScore):
 
 
 #this function reads all the documents from the Leaderboard collection and sorts them by score
-static func read_and_sort_leaderboard(container):
+static func read_and_sort_leaderboard(Vcontainer):
 	var query := FirestoreQuery.new()
 	query.from("Leaderboard")
 	
@@ -47,5 +47,18 @@ static func read_and_sort_leaderboard(container):
 	
 	for i in range(min(5, scores.size())): #5 = top 5 leaderboard. Change at your own will
 		var entry = scores[i]
-		#print("#", i + 1, " Name: ", entry["name"], " | Score: ", entry["score"])
 		
+		var label = Label.new()
+		
+		label.text = "#%d | User: %s | Score: %d" % [i + 1, entry["name"], entry["score"]]
+		
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		
+		label.add_theme_font_size_override("font_size", 30)
+		
+		var row_spacer = Control.new()
+		row_spacer.custom_minimum_size = Vector2(0, 30)
+		
+		Vcontainer.add_child(label)
+		Vcontainer.add_child(row_spacer)

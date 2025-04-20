@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d38xysuoicosm"]
 
 [ext_resource type="Script" uid="uid://km37f20w7n3t" path="res://scenes/test.gd" id="1_errlg"]
-[ext_resource type="Texture2D" uid="uid://dd32n7x7ms8yn" path="res://godot-kissa4.png" id="2_bl13t"]
+[ext_resource type="Texture2D" uid="uid://dd32n7x7ms8yn" path="res://resources/textures/menu/godot-kissa4.png" id="2_bl13t"]
 
 [node name="GameSelect" type="Control"]
 layout_mode = 3

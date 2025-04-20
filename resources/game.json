@@ -2,22 +2,22 @@
 	"game1": [
 		{
 			"gameName": "Discshooter",
-			"gameImg": "res://5411394-200.png",
-			"scenePath": "res://scenes/disc_shooting.tscn"
+			"gameImg": "res://resources/textures/menu/5411394-200.png",
+			"scenePath": "res://scenes/games/disc/disc_shooting.tscn",
 		}
 	],
 	"game2": [
 		{
 			"gameName": "Gogogo",
-			"gameImg": "res://5411394-200.png",
-			"scenePath": "res://scenes/before-game.tscn"
+			"gameImg": "res://resources/textures/menu/5411394-200.png",
+			"scenePath": "res://scenes/before-game.tscn",
 		}
 	],
 	"game3": [
 		{
 			"gameName": "example",
-			"gameImg": "res://5411394-200.png",
-			"scenePath": "res://scenes/before-game.tscn"
+			"gameImg": "res://resources/textures/menu/5411394-200.png",
+			"scenePath": "res://scenes/before-game.tscn",
 		}
 	]
 }

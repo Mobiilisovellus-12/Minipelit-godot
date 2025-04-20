@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dth8pn1p53f22"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_2gxki"]
+shading_mode = 0
+albedo_color = Color(0.288529, 0.596546, 0.81557, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_k1tqj"]
+flip_faces = true
+radius = 1000.0
+height = 1000.0
+is_hemisphere = true
+
+[node name="Sky" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -10, 0)
+material_override = SubResource("StandardMaterial3D_2gxki")
+mesh = SubResource("SphereMesh_k1tqj")

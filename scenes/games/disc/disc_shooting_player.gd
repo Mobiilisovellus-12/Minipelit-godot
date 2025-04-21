@@ -83,11 +83,20 @@ func _input(event):
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			
-			#bullet_instance = bullet.instantiate()
-			#bullet_instance.position = gun.global_position
-			#bullet_instance.transform.basis = gun.global_transform.basis
-			#get_parent().add_child(bullet_instance)
+	if Input.is_action_pressed("shoot"): #shooting logic
+			shoot()
 			
+func shoot():
+	if !shoot_animation.is_playing():
+		shoot_animation.play("shoot")
+		
+		var direction = -camera.global_transform.basis.z  # Camera's forward direction (-Z)
+		gun.look_at(gun.global_position + direction, Vector3.UP)
+		
+		bullet_instance = bullet.instantiate()
+		bullet_instance.position = gun.global_position
+		bullet_instance.transform.basis = gun.global_transform.basis
+		get_parent().add_child(bullet_instance)
 
 func _process(delta):
 		# If joystick is being used, disable mouse controls.

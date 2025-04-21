@@ -6,6 +6,9 @@ var jsonFilePath = "res://resources/game.json"
 const shop_path = "res://scenes/menus/shop-screen.tscn"
 const shopUtils = preload("res://scripts/shop_redirect.gd")
 
+const leaderboard_path = "res://scenes/menus/leaderboard.tscn"
+const leaderboardUtils = preload("res://scripts/leaderboard_redirect.gd")
+
 const jsonUtils = preload("res://scripts/read_json.gd")
 const button_theme = preload("res://themes/button_theme.tres")
 const back_button_theme = preload("res://themes/back_button_theme.tres")
@@ -16,6 +19,7 @@ func _ready():
 	get_viewport().size = DisplayServer.screen_get_size()
 	_add_ui_theme()
 	shopUtils.redirect_to_shop(self, shop_path)
+	leaderboardUtils.redirect_to_leaderboard(self, leaderboard_path)
 	gameData = jsonUtils.read_json(jsonFilePath)
 	generate_ui()
 

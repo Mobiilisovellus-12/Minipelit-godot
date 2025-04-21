@@ -26,10 +26,6 @@ static func read_and_sort_leaderboard(Vcontainer):
 	
 	var results = await Firebase.Firestore.query(query)
 	
-	if results == null:
-		printerr("Query failed")
-		return
-		
 	var scores = []
 	for doc in results:
 		var name = doc.get("name")
@@ -50,15 +46,27 @@ static func read_and_sort_leaderboard(Vcontainer):
 		
 		var label = Label.new()
 		
-		label.text = "#%d | User: %s | Score: %d" % [i + 1, entry["name"], entry["score"]]
+		var emoji = ""
+		match i:
+			0:
+				emoji = "🥇"
+			1:
+				emoji = "🥈"
+			2:
+				emoji = "🥉"
+			_:
+				emoji = ""
 		
-		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_LEFT
+		label.text = "%s #%d | %s | Score: %d" % [emoji, i + 1, entry["name"], entry["score"]]
+		
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
 		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 		
-		label.add_theme_font_size_override("font_size", 30)
+		label.add_theme_font_size_override("font_size", 35)
 		
 		var row_spacer = Control.new()
-		row_spacer.custom_minimum_size = Vector2(0, 30)
+		row_spacer.custom_minimum_size = Vector2(0, 50)
 		
-		Vcontainer.add_child(label)
-		Vcontainer.add_child(row_spacer)
+		if is_instance_valid(Vcontainer):
+			Vcontainer.add_child(label)
+			Vcontainer.add_child(row_spacer)

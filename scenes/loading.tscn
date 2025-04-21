@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://cuwqqdl8ywca3"]
+
+[sub_resource type="GDScript" id="GDScript_4gi0v"]
+script/source = "extends Control
+
+var progress = []
+var scene
+var load_status = 0
+
+func _ready():
+	scene = \"res://scenes/leaderboard.tscn\"
+	
+	var label = Label.new()
+	label.name = \"countDown\"
+	label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+	label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+	label.add_theme_font_size_override(\"font_size\", 30)
+	add_child(label)
+	
+	ResourceLoader.load_threaded_request(scene)
+
+func _process(delta):
+	load_status = ResourceLoader.load_threaded_get_status(scene, progress)
+	get_node(\"countDown\").text = str(floor(progress[0]*100)) + \"%\"
+	if load_status == ResourceLoader.THREAD_LOAD_LOADED:
+		var newScene = ResourceLoader.load_threaded_get(scene)
+		get_tree().change_scene_to_packed(newScene)
+"
+
+[node name="Loading" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = SubResource("GDScript_4gi0v")

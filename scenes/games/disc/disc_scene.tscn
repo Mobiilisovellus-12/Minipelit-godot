@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://5c4gvirajj2l"]
+
+[ext_resource type="Script" uid="uid://coihbth4j36lv" path="res://scenes/games/disc/disc_scene.gd" id="1_3iwm5"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_72lw5"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_72lw5"]
+albedo_color = Color(0.976471, 0.298039, 0.262745, 1)
+roughness = 0.4
+rim_tint = 1.0
+clearcoat = 0.25
+clearcoat_roughness = 1.0
+anisotropy = -1.0
+distance_fade_max_distance = 50.0
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_3iwm5"]
+
+[node name="Disc" type="RigidBody3D" groups=["discs"]]
+mass = 0.2
+script = ExtResource("1_3iwm5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(2.15, 0, 0, 0, 0.645, 0, 0, 0, 2.15, 0, 0, 0)
+mesh = SubResource("SphereMesh_72lw5")
+surface_material_override/0 = SubResource("StandardMaterial3D_72lw5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(5.5, 0, 0, 0, 5.5, 0, 0, 0, 5.5, 0.00971794, 1.42588, -0.00160837)
+shape = SubResource("SphereShape3D_3iwm5")

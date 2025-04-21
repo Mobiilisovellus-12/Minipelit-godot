@@ -11,6 +11,8 @@ signal highscore_changed(new_highscore: int)
 const DEFAULT_PATH := "res://resources/default/save_template.json"
 const SAVE_PATH := "user://saves/save.json"
 
+const leaderboardUtils = preload("res://scripts/get_leaderboard.gd")
+
 func _ready():
 	ensure_save_file_exists()
 	load_game_data()
@@ -31,6 +33,7 @@ func check_highscore():
 		var entry = games_data.get(current_game_key, [])[0]
 		entry["highScore"] = score
 		highscore_changed.emit(score)
+		leaderboardUtils.add_or_update("temp", score)
 		save_game_data()
 
 func reset_highscore():

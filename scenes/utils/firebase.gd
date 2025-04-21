@@ -9,7 +9,7 @@ func _ready():
 	
 	if Firebase.Auth.check_auth_file():
 		%StateLabel.text = "Logged in"
-		get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+		get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
 
 #register with email
 func _on_signup_withEmail_button_pressed():
@@ -35,7 +35,7 @@ func _on_firebaseAuth_login_succeeded(auth):
 	%StateLabel.text = "Login succesfull!"
 	Firebase.Auth.save_auth(auth)
 	Firebase.Auth.load_auth()
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
 
 #when signup succesfull
 func _on_firebaseAuth_signup_succeeded(auth):
@@ -43,7 +43,7 @@ func _on_firebaseAuth_signup_succeeded(auth):
 	%StateLabel.text = "Sign up succesfull!"
 	Firebase.Auth.save_auth(auth)
 	Firebase.Auth.load_auth()
-	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	get_tree().change_scene_to_file("res://scenes/menus/main_menu.tscn")
 
 #when login unsuccesfull
 func on_login_failed(error_code, message):

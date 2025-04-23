@@ -4,6 +4,7 @@ const function = preload("res://scripts/get_leaderboard.gd")
 const back_button_theme = preload("res://themes/back_button_theme.tres")
 
 func _ready():
+	get_viewport().size = DisplayServer.screen_get_size()
 	function.read_and_sort_leaderboard($ColorRect/ScrollContainer/VBoxContainer)
 	_add_ui()
 

@@ -13,35 +13,37 @@ script = ExtResource("1_jlg52")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(1080, 1080)
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
-color = Color(0.533333, 0.686275, 0.588235, 1)
-
-[node name="VBoxContainer" type="VBoxContainer" parent="ColorRect"]
-custom_minimum_size = Vector2(800, 800)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -43.0
-offset_top = -64.5
-offset_right = 43.0
-offset_bottom = 64.5
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+color = Color(0.533333, 0.686275, 0.588235, 1)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+custom_minimum_size = Vector2(800, 800)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme_override_constants/separation = 80
 
-[node name="StateLabel" type="Label" parent="ColorRect/VBoxContainer"]
+[node name="StateLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 50
 text = "Logged out"
 
-[node name="EmailLineEdit" type="LineEdit" parent="ColorRect/VBoxContainer"]
+[node name="EmailLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
@@ -50,7 +52,7 @@ theme_override_font_sizes/font_size = 30
 placeholder_text = "ENTER EMAIL"
 alignment = 1
 
-[node name="PasswordLineEdit" type="LineEdit" parent="ColorRect/VBoxContainer"]
+[node name="PasswordLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
@@ -60,27 +62,27 @@ placeholder_text = "ENTER PASSWORD"
 alignment = 1
 secret = true
 
-[node name="LoginButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="LoginButton" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "LOGIN"
 
-[node name="SignupButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="SignupButton" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "SIGN UP"
 
-[node name="AnonymousLoginButton" type="Button" parent="ColorRect/VBoxContainer"]
+[node name="AnonymousLoginButton" type="Button" parent="MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(500, 50)
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_font_sizes/font_size = 30
 text = "LOGIN ANONYMOUSLY"
 
-[connection signal="pressed" from="ColorRect/VBoxContainer/LoginButton" to="." method="_on_login_withEmail_button_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/SignupButton" to="." method="_on_signup_withEmail_button_pressed"]
-[connection signal="pressed" from="ColorRect/VBoxContainer/AnonymousLoginButton" to="." method="_on_login_anonymous_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/LoginButton" to="." method="_on_login_withEmail_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/SignupButton" to="." method="_on_signup_withEmail_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/AnonymousLoginButton" to="." method="_on_login_anonymous_button_pressed"]

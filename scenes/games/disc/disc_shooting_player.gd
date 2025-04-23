@@ -109,7 +109,7 @@ func _process(delta):
 		# Apply pitch rotation around the X-axis (vertical)
 		camera.rotation_degrees.x = clamp(camera.rotation_degrees.x + pitch_delta, camera_min_x, camera_max_x)
 		# Apply yaw rotation around the Y-axis (horizontal)
-		camera.rotation_degrees.y = clamp(camera.rotation_degrees.y + yaw_delta, camera_min_y, camera_max_y)
+		rotation_degrees.y = clamp(rotation_degrees.y + yaw_delta, camera_min_y, camera_max_y)
 	elif use_mouse:
 		var mouse_delta = Input.get_last_mouse_screen_velocity()
 		rotation_degrees.y -= mouse_delta.x * mouse_sensitivity

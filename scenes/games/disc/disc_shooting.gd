@@ -7,7 +7,6 @@ var timer2: Timer
 
 @onready var start_screen = $CanvasLayer/BeforeGame
 @onready var game_objects = $GameEnvironment/GameObjects
-@onready var crosshair = $joystick_ui/CanvasLayer/TextureRect
 @onready var pause_button = $CanvasLayer/PauseButtonScene
 @onready var pause_screen = $CanvasLayer/InGamePause
 @onready var countdown_ui = $CanvasLayer/CountdownUI

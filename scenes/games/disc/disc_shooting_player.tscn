@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://c665m0jp2o6vs"]
+[gd_scene load_steps=9 format=3 uid="uid://c665m0jp2o6vs"]
 
 [ext_resource type="Script" uid="uid://3v7jtfrf2xqd" path="res://scenes/games/disc/disc_shooting_player.gd" id="1_odfn2"]
 [ext_resource type="PackedScene" uid="uid://ctvovfohsgits" path="res://scenes/utils/activate_motion_controls.tscn" id="2_q4jgv"]
+[ext_resource type="PackedScene" uid="uid://bk4g2mc3xeixy" path="res://scenes/utils/joystick_ui.tscn" id="3_hcrv5"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_q4jgv"]
 
@@ -59,7 +60,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.6, 0)
 transform = Transform3D(0.938444, 0.0275836, 0.344329, -0.341963, -0.0667259, 0.937341, 0.048831, -0.99739, -0.053186, 0.13798, -0.213167, -0.274791)
 
 [node name="MeshInstance3D_gun" type="MeshInstance3D" parent="Camera3D/Node3D_gun"]
-transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0)
+transform = Transform3D(0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0.159685, -0.197487, -0.248625)
 mesh = SubResource("CylinderMesh_xflb5")
 skeleton = NodePath("../..")
 
@@ -70,17 +71,4 @@ libraries = {
 
 [node name="ActivateGyro" parent="." instance=ExtResource("2_q4jgv")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-anchors_preset = 6
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -40.0
-offset_top = -11.5
-offset_bottom = 11.5
-grow_horizontal = 0
-grow_vertical = 2
-text = "test"
+[node name="joystick_ui" parent="." instance=ExtResource("3_hcrv5")]

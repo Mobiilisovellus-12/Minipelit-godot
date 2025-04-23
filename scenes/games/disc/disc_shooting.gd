@@ -12,7 +12,7 @@ var timer2: Timer
 @onready var pause_screen = $CanvasLayer/InGamePause
 @onready var countdown_ui = $CanvasLayer/CountdownUI
 @onready var test_ui = $GameEnvironment/GameObjects/DiscShootingPlayer/ActivateGyro
-@onready var joystick_ui = $CanvasLayer/joystick_ui/CanvasLayer
+@onready var joystick_ui = $GameEnvironment/GameObjects/DiscShootingPlayer/joystick_ui/CanvasLayer
 @onready var virtual_joystick = $"CanvasLayer/Virtual Joystick"
 @onready var disc_shooter_left = $GameEnvironment/GameObjects/DiscShooter2
 @onready var disc_shooter_right = $GameEnvironment/GameObjects/DiscShooter

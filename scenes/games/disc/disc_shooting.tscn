@@ -1,11 +1,10 @@
-[gd_scene load_steps=16 format=3 uid="uid://cimq60kdqoicq"]
+[gd_scene load_steps=15 format=3 uid="uid://cimq60kdqoicq"]
 
 [ext_resource type="Script" uid="uid://dtamn2qua3od0" path="res://scenes/games/disc/disc_shooting.gd" id="1_17h1x"]
 [ext_resource type="Texture2D" uid="uid://de4l4fwxjpos1" path="res://resources/textures/game/disc/sky.jpg" id="2_6wsk7"]
 [ext_resource type="PackedScene" uid="uid://c665m0jp2o6vs" path="res://scenes/games/disc/disc_shooting_player.tscn" id="2_l33fi"]
 [ext_resource type="PackedScene" uid="uid://c7q23qf37528x" path="res://scenes/games/disc/disc_shooter_scene.tscn" id="3_6u3rx"]
 [ext_resource type="PackedScene" uid="uid://cagk5u7j5bb4w" path="res://scenes/utils/before-game.tscn" id="3_37r6x"]
-[ext_resource type="PackedScene" uid="uid://bk4g2mc3xeixy" path="res://scenes/utils/joystick_ui.tscn" id="4_nh1ae"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="5_cy20n"]
 [ext_resource type="PackedScene" uid="uid://hvhjwkgj25gg" path="res://scenes/utils/pause_button.tscn" id="8_i1v6t"]
 [ext_resource type="PackedScene" uid="uid://djkwmw3aen5r0" path="res://scenes/utils/in_game_pause.tscn" id="9_kun42"]
@@ -64,8 +63,6 @@ light_energy = 3.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
-[node name="joystick_ui" parent="CanvasLayer" instance=ExtResource("4_nh1ae")]
-
 [node name="Virtual Joystick" parent="CanvasLayer" instance=ExtResource("5_cy20n")]
 
 [node name="BeforeGame" parent="CanvasLayer" instance=ExtResource("3_37r6x")]
@@ -75,7 +72,6 @@ visible = false
 
 [node name="InGamePause" parent="CanvasLayer" instance=ExtResource("9_kun42")]
 visible = false
-mouse_filter = 0
 
 [node name="CountdownUI" parent="CanvasLayer" instance=ExtResource("10_kyyb7")]
 visible = false

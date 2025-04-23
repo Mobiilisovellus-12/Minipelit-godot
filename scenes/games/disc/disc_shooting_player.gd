@@ -35,6 +35,9 @@ func _ready():
 	
 	var recalibrate_button = $ActivateGyro/MarginContainer/VBoxContainer/HBoxContainer2/Button
 	recalibrate_button.pressed.connect(_recalibrate_motion)
+	
+	var shoot_button = $joystick_ui
+	shoot_button.shoot_pressed.connect(_on_shoot_pressed)
 
 func _on_motion_control_toggled(enabled: bool):
 	use_motion_controls = enabled
@@ -67,10 +70,17 @@ func shoot():
 	var space_state = get_world_3d().direct_space_state
 	var result = space_state.intersect_ray(query)
 	
+	if !shoot_animation.is_playing():
+		shoot_animation.play("shoot")
+	
 	if result:
 		var target = result.collider
 		if target and target.is_in_group("discs"):
 			target.is_shot()
+
+func _on_shoot_pressed():
+	print("Shot!")
+	shoot()
 
 func _input(event):
 	if event is InputEventMouseMotion:
@@ -82,21 +92,6 @@ func _input(event):
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 		else:
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-			
-	if Input.is_action_pressed("shoot"): #shooting logic
-			shoot()
-			
-func shoot():
-	if !shoot_animation.is_playing():
-		shoot_animation.play("shoot")
-		
-		var direction = -camera.global_transform.basis.z  # Camera's forward direction (-Z)
-		gun.look_at(gun.global_position + direction, Vector3.UP)
-		
-		bullet_instance = bullet.instantiate()
-		bullet_instance.position = gun.global_position
-		bullet_instance.transform.basis = gun.global_transform.basis
-		get_parent().add_child(bullet_instance)
 
 func _process(delta):
 		# If joystick is being used, disable mouse controls.

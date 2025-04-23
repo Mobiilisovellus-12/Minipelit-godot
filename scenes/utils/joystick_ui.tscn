@@ -1,11 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://bk4g2mc3xeixy"]
+[gd_scene load_steps=6 format=3 uid="uid://bk4g2mc3xeixy"]
 
 [ext_resource type="Script" uid="uid://dhe5hw8rdq6rd" path="res://scenes/utils/joystick_ui.gd" id="1_08qlo"]
 [ext_resource type="PackedScene" uid="uid://dmr0fcamx7t56" path="res://addons/virtual_joystick/virtual_joystick_scene.tscn" id="1_32oy1"]
 [ext_resource type="Texture2D" uid="uid://bjft6m4wtn1gd" path="res://resources/textures/game/disc/crosshair2.png" id="3_08qlo"]
 [ext_resource type="Script" uid="uid://8mhwbkfeqgog" path="res://scenes/sprite_2d.gd" id="4_nvh7d"]
 [ext_resource type="Texture2D" uid="uid://olcsk017posl" path="res://bullet_icon.png" id="5_hujpj"]
-[ext_resource type="Script" uid="uid://cyt7vnh3f4efg" path="res://scenes/texture_button.gd" id="6_nvh7d"]
 
 [node name="joystick_ui" type="Control"]
 layout_mode = 3
@@ -77,32 +76,30 @@ theme_override_font_sizes/font_size = 40
 horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer"]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -540.0
-offset_top = -540.0
-offset_right = -412.0
-offset_bottom = -412.0
+anchors_preset = -1
+anchor_left = 0.440741
+anchor_top = 0.440741
+anchor_right = 0.559259
+anchor_bottom = 0.559259
 grow_horizontal = 2
 grow_vertical = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 texture = ExtResource("3_08qlo")
 expand_mode = 1
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureButton" type="TextureButton" parent="CanvasLayer"]
-anchors_preset = 3
+anchors_preset = 6
 anchor_left = 1.0
-anchor_top = 1.0
+anchor_top = 0.5
 anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -130.0
-offset_top = -400.0
-offset_right = 120.0
-offset_bottom = -150.0
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -125.0
+offset_bottom = 125.0
 grow_horizontal = 0
-grow_vertical = 0
+grow_vertical = 2
 rotation = 0.785398
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -111,7 +108,6 @@ texture_normal = ExtResource("5_hujpj")
 texture_pressed = ExtResource("5_hujpj")
 ignore_texture_size = true
 stretch_mode = 0
-script = ExtResource("6_nvh7d")
 
-[connection signal="button_up" from="CanvasLayer/TextureButton" to="CanvasLayer/TextureButton" method="_on_button_up"]
-[connection signal="pressed" from="CanvasLayer/TextureButton" to="CanvasLayer/TextureButton" method="_on_pressed"]
+[connection signal="button_up" from="CanvasLayer/TextureButton" to="." method="_on_texture_button_button_up"]
+[connection signal="pressed" from="CanvasLayer/TextureButton" to="." method="_on_texture_button_pressed"]

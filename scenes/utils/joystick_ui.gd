@@ -4,11 +4,21 @@ extends Control
 @onready var timer_label = $CanvasLayer/Timer_label
 @onready var score_label = $CanvasLayer/MarginContainer/VBoxContainer/Score
 @onready var highscore_label = $CanvasLayer/MarginContainer/VBoxContainer/Highscore
+@onready var shoot_button = $CanvasLayer/TextureButton
 var time : float = 0.0
+
+
+signal shoot_pressed
+
+@export var normal_color: Color = Color(1, 1, 1)
+@export var pressed_color: Color = Color(0.8, 0.8, 0.8)
+
 
 func _ready():
 	DisplayServer.screen_set_orientation(DisplayServer.SCREEN_LANDSCAPE)
 	get_viewport().size = DisplayServer.screen_get_size()
+	
+	shoot_button.modulate = normal_color
 	
 	setup_score()
 	
@@ -46,3 +56,12 @@ func minute_padding(minutes: int) -> String:
 # Helper function to add leading zero for seconds
 func seconds_padding(seconds: int) -> String:
 	return "0" + str(seconds) if seconds < 10 else str(seconds)
+
+
+func _on_texture_button_pressed():
+	shoot_button.modulate = pressed_color
+	emit_signal("shoot_pressed")
+
+
+func _on_texture_button_button_up():
+	shoot_button.modulate = normal_color

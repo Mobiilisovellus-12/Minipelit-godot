@@ -20,6 +20,7 @@ func _on_back_button_pressed() -> void:
 func _on_log_out_button_pressed() -> void:
 	Firebase.Auth.logout()
 	default()
+	get_tree().change_scene_to_packed(load("res://scenes/utils/firebase.tscn"))
 	print("logout painettu")
 	
 func default() -> void:

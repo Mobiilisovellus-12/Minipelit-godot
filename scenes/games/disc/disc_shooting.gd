@@ -7,7 +7,6 @@ var timer2: Timer
 
 @onready var start_screen = $CanvasLayer/BeforeGame
 @onready var game_objects = $GameEnvironment/GameObjects
-@onready var crosshair = $joystick_ui/CanvasLayer/TextureRect
 @onready var pause_button = $CanvasLayer/PauseButtonScene
 @onready var pause_screen = $CanvasLayer/InGamePause
 @onready var countdown_ui = $CanvasLayer/CountdownUI
@@ -75,7 +74,6 @@ func _unpause_game():
 
 func _quit_game_session():
 	ScoreManager.check_highscore()
-	#queue_free()
 	get_tree().change_scene_to_packed(load("res://scenes/menus/game_select.tscn"))
 
 func _do_countdown():

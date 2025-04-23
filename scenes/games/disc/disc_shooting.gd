@@ -75,7 +75,6 @@ func _unpause_game():
 
 func _quit_game_session():
 	ScoreManager.check_highscore()
-	queue_free()
 	get_tree().change_scene_to_packed(load("res://scenes/menus/game_select.tscn"))
 
 func _do_countdown():

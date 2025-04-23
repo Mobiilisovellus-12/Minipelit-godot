@@ -3,7 +3,7 @@ extends Node
 static func add_or_update(userName, highScore):
 	var data: Dictionary = {
 		"name": userName,
-		"socre": highScore
+		"score": highScore
 	}
 	
 	var auth = Firebase.Auth.auth
